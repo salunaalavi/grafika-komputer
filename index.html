@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <title>Grafika Komputer</title>
+
+  <style>
+    .custom-style-btn-arrow:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row" style="max-height: 700px; overflow-y: scroll">
+    <div class="col col-md-3" style="background :rgb(226, 226, 226)">
+
+      <!-- Shape -->
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title">Shape</h5>
+          <div class="row text-center">
+            <div class="col col-md-3">
+              <button class="btn btn-success btn-sm" onclick="oval(80)">
+                Oval
+              </button>
+            </div>
+            <div class="col col-md-3">
+              <button class="btn btn-success btn-sm" onclick="persegipanjang(400,200)">
+                Persegi Panjang
+              </button>
+            </div>
+          </div>
+          <div class="row text-center my-1">
+            <div class="col col-md-4">
+              <button class="btn btn-success btn-sm" onclick="persegi(200,200)">
+                Persegi
+              </button>
+            </div>
+            <div class="col col-md-4">
+              <button class="btn btn-sm btn-success" onclick="segitiga(200,200)">
+                Segitiga
+              </button>
+            </div>
+            <div class="col col-md-4">
+              <button class="btn btn-sm btn-success" onclick="lingkaran(80)">
+                Lingkaran
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-md-6">
+              <label for="stroke-color">Fill Color</label>
+              <input type="color" class="form-control form-control-color" id="fill-color-shape" />
+            </div>
+            <div class="col col-md-6">
+              <label for="stroke-color">Stroke Color</label>
+              <input type="color" class="form-control form-control-color" id="stroke-color-shape" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Shape -->
+
+    <!-- Line -->
+    <div class="col col-md-3" style="background :rgb(226, 226, 226)">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Line Draw</h5>
+          <div class="row">
+            <div class="col-sm-12">
+              <label for="lineWidth">Line Width
+                <span class="badge bg-primary" id="line-width-value">1</span></label>
+              <input type="range" class="form-range" min="1" max="5" id="lineWidth" />
+            </div>
+          </div>
+          <div class="row my-1">
+            <div class="col-sm-12">
+              <label for="stroke-color">Stroke Color</label>
+              <input type="color" class="form-control form-control-color" id="stroke-color" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label for="line-type">Type</label>
+              <select class="form-select" id="line-type">
+                <option value="solid">Solid</option>
+                <option value="dashed">Dashed</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Line -->
+
+    <div class="col col-md-3" style="background :rgb(226, 226, 226)">
+      <!-- Rotate -->
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title">Rotate</h5>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">&#920;</span>
+            <input type="text" class="form-control" placeholder="Angle" id="rotate-shape" />
+            <button class="btn btn-sm btn-success" id="btn-rotate">
+              Rotate
+            </button>
+          </div>
+          <h5 class="card-title">Scale</h5>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping"><i class="fas fa-expand-arrows-alt"></i></span>
+            <input type="text" class="form-control" placeholder="skala" id="scale-x-shape" />
+            <button class="btn btn-sm btn-success" id="btn-scale">
+              Scale
+            </button>
+          </div>
+          <div class="mt-3">
+            <h5 class="card-title">Flip</h5>
+            <div class="btn-group d-flex" role="group" aria-label="Basic example">
+              <button class="btn btn-primary" onclick="flipHorizontal()">
+                <i class="fas fa-arrows-alt-h"></i>
+              </button>
+              <button class="btn btn-danger" onclick="flipVertical()">
+                <i class="fas fa-arrows-alt-v"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Rotate -->
+
+    <!-- Translate -->
+    <div class="col col-md-3" style="background :rgb(226, 226, 226)">
+      <div class="card my-1">
+        <div class="card-body">
+          <h5 class="card-title">Translate</h5>
+
+          <!-- Tombol Baris Pertama -->
+          <div class="row text-center">
+            <!-- Tombol Kiri Atas -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn arrow-btn" onclick="ataskiri()">
+                <i class="custom-style-btn-arrow fas fa-arrow-circle-up" style="transform: rotate(-45deg)"></i>
+              </button>
+            </div>
+            <!-- End Tombol Kiri Atas -->
+
+            <!-- Tombol tengah atas -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn" onclick="atastengah()">
+                <i class="custom-style-btn-arrow fas fa-arrow-circle-up"></i>
+              </button>
+            </div>
+            <!-- End Tombol tengah atas -->
+
+            <!-- Tombol kanan atas -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn" onclick="ataskanan()">
+                <i class="custom-style-btn-arrow fas fa-arrow-circle-up" style="transform: rotate(45deg)"></i>
+              </button>
+            </div>
+            <!-- End Tombol kanan atas -->
+          </div>
+          <!-- End Tombol Baris Pertama -->
+
+          <!-- Tombol Baris Kedua -->
+          <div class="row my-1 text-center">
+            <!-- Tombol tengah kiri -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn" onclick="tengahkiri()">
+                <i class="
+                        custom-style-btn-arrow
+                        fas
+                        fa-arrow-circle-left
+                      "></i>
+              </button>
+            </div>
+            <!-- End Tombol tengah kiri -->
+
+            <!-- Tombol tengah -->
+            <div class="col"></div>
+            <!-- End Tombol tengah -->
+
+            <!-- Tombol tengah kanan -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn" onclick="tengahkanan()">
+                <i class="
+                        custom-style-btn-arrow
+                        fas
+                        fa-arrow-circle-right
+                      "></i>
+              </button>
+            </div>
+            <!-- End Tombol tengah kanan -->
+          </div>
+          <!-- End Tombol Baris Kedua -->
+
+          <!-- Tombol Baris Ketiga -->
+          <div class="row text-center">
+            <!-- Tombol bawah kiri -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn" onclick="bawahkiri()">
+                <i class="custom-style-btn-arrow fas fa-arrow-circle-up" style="transform: rotate(-135deg)"></i>
+              </button>
+            </div>
+            <!-- End Tombol bawah kiri -->
+
+            <!-- Tombol bawah tengah -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn" onclick="bawahtengah()">
+                <i class="
+                        custom-style-btn-arrow
+                        fas
+                        fa-arrow-circle-down
+                      "></i>
+              </button>
+            </div>
+            <!-- End Tombol bawah tengah -->
+
+            <!-- Tombol bawah tengah kanan -->
+            <div class="col">
+              <button class="btn btn-sm btn-secondary arrow-btn" onclick="bawahkanan()">
+                <i class="custom-style-btn-arrow fas fa-arrow-circle-up" style="transform: rotate(135deg)"></i>
+              </button>
+            </div>
+            <!-- End Tombol bawah tengah kanan -->
+          </div>
+          <!-- End Tombol Baris Ketiga -->
+        </div>
+      </div>
+      <!-- End Translate -->
+    </div>
+
+    <!-- Canvas -->
+    <div class="col col-md-12">
+      <canvas id="canvas-view" width="1200" height="400"
+        style="border: 1px solid rgb(0, 0, 0); display: block; margin: 0 auto">
+      </canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+  <script src="paint.js"></script>
+  <script src="lib/linedraw.js"></script>
+  <script src="lib/translation.js"></script>
+  <script src="lib/rotate.js"></script>
+  <script src="lib/scale.js"></script>
+  <script src="lib/flip.js"></script>
+</body>
+
+</html>
