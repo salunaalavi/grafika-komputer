@@ -67,7 +67,7 @@ function persegi(panjang, lebar, rotateShape, scaleSize = []) {
     drawCanvas()
 }
 
-function persegipanjang(panjang, lebar, rotateShape, scaleSize = []) {
+function persegipanjang(panjang, lebar, rotateShape, scaleSize = [], flipX = 'false', flipY = 'false') {
     refreshCanvas()
     recentShape = 'persegipanjang'
     if (recentSize.length > 0) {
@@ -88,7 +88,7 @@ function persegipanjang(panjang, lebar, rotateShape, scaleSize = []) {
     }
 
     if (scaleSize.length > 0) {
-        context.setTransform(scaleSize[0], 0, 0, scaleSize[1],midPointX, midPointY)
+        context.setTransform(scaleSize[0], 0, 0, scaleSize[1], midPointX, midPointY)
     }
     context.strokeStyle = strokeColorShape
     context.fillStyle = fillColorShape
@@ -98,7 +98,7 @@ function persegipanjang(panjang, lebar, rotateShape, scaleSize = []) {
     drawCanvas()
 }
 
-function segitiga(alas, tinggi, rotateShape, flipX = 'odd', flipY = 'odd') {
+function segitiga(alas, tinggi, rotateShape, flipX = 'false', flipY = 'false') {
     refreshCanvas()
     recentShape = 'segitiga'
     if (recentSize.length > 0) {
@@ -118,15 +118,15 @@ function segitiga(alas, tinggi, rotateShape, flipX = 'odd', flipY = 'odd') {
         context.rotate(Math.PI / 180 * rotateShape)
     }
 
-    if (flipX == 'odd' && flipY == 'odd') {
+    if (flipX == 'false' && flipY == 'false') {
         context.moveTo(alas/2, -tinggi/2)
         context.lineTo(alas/2,tinggi/2)
         context.lineTo(-alas/2,tinggi/2)
-    }else if (flipX =='even') {
+    }else if (flipX =='true') {
         context.moveTo(-alas/2, -tinggi/2)
         context.lineTo(alas/2,tinggi/2)
         context.lineTo(-alas/2,tinggi/2)
-    }else if (flipY == 'even') {
+    }else if (flipY == 'true') {
         context.moveTo(-alas/2,-tinggi/2)
         context.lineTo(alas/2,tinggi/2)
         context.lineTo(alas/2, -tinggi/2)
